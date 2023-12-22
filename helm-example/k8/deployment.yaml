@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: html-sample
+  namespace: html-sample
+spec:
+  selector:
+    matchLabels:
+      app: html-sample
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: html-sample
+    spec:
+      containers:
+        - name: html-sample
+          image: html-sample:1.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
